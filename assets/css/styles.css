@@ -258,40 +258,60 @@ img {
   position: relative;
   display: grid;
   overflow: clip;
+
+  place-items: center;
+  
 }
 
 .home__image .blob-animate{
   position: absolute;
-  width:250px;
-  height:250px;
-  bottom:0;
+  width: 400px;
+  height: 400px;
   left: 50%;
+  bottom: 10px;
   transform: translateX(-50%);
+  
+  background: radial-gradient(circle at center,
+      var(--first-color-alt) 0%,
+      var(--first-color) 30%,
+      transparent 70%);
+  
+  filter: blur(80px); /* 🔥 increase */
+  opacity: 0.9;
+  z-index: -1;
 }
 
-.home__perfil{
+.home__profile{
   width: 320px;
   justify-self: center;
+  position: relative;
+  z-index: 2;
+  transform: translateY(-10px);
 }
 
-.home__shadow, .home__info, .home__social, .home__cv {
+/* .home__shadow, .home__info, .home__social, .home__cv {
   position: absolute;
-}
+} */
 
 .home__shadow{
   width: 100%;
-  height: 175px;
-  bottom: 1rem;
-  z-index: 1;
-  background: linear-gradient(180deg,
-             hsla(240,100%,2%, 0)60%,
-             hsl(240,100%,2%)85%);
+  bottom: 0;
+  z-index: 2;
+  height: 300px;
+  background: linear-gradient(
+    to bottom,
+    transparent 20%,
+    hsl(240,100%,2%) 90%
+  );
 }
 
 .home__info{
   z-index: 2;
   bottom: -1rem;
   justify-self: center;
+  
+  position: static; /* reset */
+  text-align: center;
 }
 
 .home__split{
@@ -299,6 +319,81 @@ img {
   font-weight: var(--font-regular);
   color: var(--first-color);
 }
+
+.home__profession-1, .home__profession-2{
+  font-size: var(--bigger-font-size);
+  text-align: center;
+  overflow: hidden;
+}
+
+.home__profession-1 {
+  position: relative;
+  color: var(--first-color);
+  font-weight: 700;
+}
+
+.home__profession-1::after{
+  content: '';
+  width:100%;
+  height: 100%;
+  background: linear-gradient(0deg,
+              hsl(0,0%, 0%) 10%,
+              hsla(0,0%,0%,0)60%) ;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.home__profession-2{
+  transform: translateY(-1rem);
+    font-weight: 400;
+  opacity: 0.8;
+}
+
+.home__social{
+  z-index: 2;
+  left: unset;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.2rem;
+}
+
+.home__social-link{
+  color:var(--title-color);
+  font-size: 1.3rem;
+  opacity: 0.7;
+  transition: all .3s;
+}
+
+.home__social-link:hover{
+  color: var(--first-color);
+  opacity: 1;
+  transform: translateX(6px);
+}
+
+.home__cv{
+  z-index: 2;
+  right: unset;
+  bottom: unset;
+  rotate: unset;
+  color: var(--text-color-light);
+  font:var(--font-medium) var(--small-font-size) var(--second-font);
+  display:flex;
+  align-items:center;
+  column-gap: .5rem;
+  transition: color .4s ;
+}
+
+.home__cv i{
+  font-size: 1rem;
+}
+
+.home__cv:hover{
+color: var(--first-color);
+}
+
+
 /*=============== BUTTON ===============*/
 
 
@@ -350,27 +445,103 @@ img {
   .container{
     margin-inline: 1rem;
   }
+
+  .blob,
+  .home__image .blob-animate{
+    width: 220px;
+    height: 220px;
+  }
+
+
+
 }
 
+
+
+
 /* For medium devices */
+@media screen and (min-width: 540px){
+  .home__container{
+    width: 460px;
+    margin-inline: auto;
+  }
+}
+
+@media screen and (min-width: 768px){
+  .home__container{
+    width: 600px;
+  }
+}
+
+
+
 
 
 /* For large devices */
-@media screen and (min-width:1150px){
-  .container{
-    margin-inline: auto;
-  }
+/* MAIN CONTAINER */
+.home__container{
+  display: grid;
+  gap: 2rem;
+}
 
-  .nav{
-    height: calc(var(--header-height)+ 2rem);
+/* LEFT & RIGHT */
+.home__left,
+.home__right{
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* IMAGE CENTER */
+.home__image{
+  display: flex;
+  justify-content: center;
+}
+
+/* ICONS (mobile) */
+.home__social{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* RESUME (mobile) */
+.home__cv{
+  align-self: center;
+}
+
+/* ================= DESKTOP ================= */
+@media screen and (min-width:1150px){
+
+  .home__container{
+    grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
   }
-  .nav__logo{
-    align-self: initial;
+
+  /* LEFT */
+  .home__left{
+    align-items: flex-start;
   }
-  .nav__list{
-    flex-direction: row;
-    column-gap: 5.5rem;
+
+  .home__social{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  /* CENTER */
+  .home__image{
+    justify-self: center;
+  }
+
+  /* RIGHT */
+  .home__right{
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .home__cv{
+    align-self: flex-end;
   }
 }
 
