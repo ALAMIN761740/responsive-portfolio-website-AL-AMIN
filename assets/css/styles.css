@@ -205,10 +205,6 @@ img {
   color: var(--title-color);
   align-self: flex-start;
   transition: color .4s;
-  font-size: 1.2rem;
-  letter-spacing: 1px;
-  outline: none;
-  border: none;
 }
 
 .nav__logo:hover{
@@ -439,6 +435,15 @@ color: var(--first-color);
 /*=============== SCROLL BAR ===============*/
 
 
+
+
+
+
+
+
+
+
+
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
 @media screen and (max-width: 320px){
@@ -478,48 +483,32 @@ color: var(--first-color);
 
 
 /* For large devices */
-/* MAIN CONTAINER */
-.home__container{
-  display: grid;
-  gap: 2rem;
-}
-
-/* LEFT & RIGHT */
-.home__left,
-.home__right{
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-
-/* IMAGE CENTER */
-.home__image{
-  display: flex;
-  justify-content: center;
-}
-
-/* ICONS (mobile) */
-.home__social{
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 1rem;
-}
-
-/* RESUME (mobile) */
-.home__cv{
-  align-self: center;
-}
-
-/* ================= DESKTOP ================= */
 @media screen and (min-width:1150px){
+  .container{
+    margin-inline: auto;
+  }
 
-  .home__container{
+  .nav{
+    height: calc(var(--header-height) + 2rem);
+    align-items: center;
+  }
+
+  .nav__logo{
+    align-self: initial;
+  }
+
+  .nav__list{
+    flex-direction: row;
+    column-gap: 5.5rem;
+  }
+
+
+  /* .home__container{
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
   }
 
-  /* LEFT */
+  /* LEFT 
   .home__left{
     align-items: flex-start;
   }
@@ -529,12 +518,11 @@ color: var(--first-color);
     align-items: flex-start;
   }
 
-  /* CENTER */
+  /* CENTER 
   .home__image{
     justify-self: center;
   }
 
-  /* RIGHT */
   .home__right{
     align-items: flex-end;
     text-align: right;
@@ -542,7 +530,7 @@ color: var(--first-color);
 
   .home__cv{
     align-self: flex-end;
-  }
+  } */
 }
 
 /* For 2K resolutions (2048 x 1152, 2048 x 1536) */
