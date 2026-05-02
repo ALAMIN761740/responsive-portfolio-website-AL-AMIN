@@ -235,9 +235,12 @@ img {
 /*=============== HOME ===============*/
 .home{
   position:relative;
-  padding-top: 4rem ;
+}
+
+.home__container{
+  position: relative;
+  padding-top: 4rem;
   row-gap: 3rem;
-  display: grid;
 }
 
 .home__greeting{
@@ -253,62 +256,42 @@ img {
 .home__image{
   position: relative;
   display: grid;
-  overflow: clip;
-
-  place-items: center;
-  
+  overflow-y: clip;
 }
 
 .home__image .blob-animate{
-  position: absolute;
-  width: 400px;
-  height: 400px;
-  left: 50%;
-  bottom: 10px;
-  transform: translateX(-50%);
-  
-  background: radial-gradient(circle at center,
-      var(--first-color-alt) 0%,
-      var(--first-color) 30%,
-      transparent 70%);
-  
-  filter: blur(80px); /* 🔥 increase */
-  opacity: 0.9;
-  z-index: -1;
+  width: 250px;
+  height: 250px;
+  bottom: 0;
+  justify-self: center;
 }
 
 .home__profile{
   width: 320px;
   justify-self: center;
-  position: relative;
-  z-index: 2;
-  transform: translateY(-10px);
+  
 }
 
-/* .home__shadow, .home__info, .home__social, .home__cv {
+.home__shadow, .home__info, .home__social, .home__cv {
   position: absolute;
-} */
+}
 
 .home__shadow{
   width: 100%;
-  bottom: 0;
-  z-index: 2;
-  height: 300px;
-  background: linear-gradient(
-    to bottom,
-    transparent 20%,
-    hsl(240,100%,2%) 90%
-  );
+  height: 375px;
+  bottom: 1rem;
+  z-index: 1;
+  background: linear-gradient(180deg,
+              hsla(240, 100%, 2%, 0)60%,
+              hsl(240, 100%, 2%) 85%);
 }
 
-.home__info{
+ .home__info{
   z-index: 2;
   bottom: -1rem;
   justify-self: center;
-  
-  position: static; /* reset */
-  text-align: center;
 }
+
 
 .home__split{
   font-size: var(--h3-font-size);
@@ -325,7 +308,6 @@ img {
 .home__profession-1 {
   position: relative;
   color: var(--first-color);
-  font-weight: 700;
 }
 
 .home__profession-1::after{
@@ -342,8 +324,6 @@ img {
 
 .home__profession-2{
   transform: translateY(-1rem);
-    font-weight: 400;
-  opacity: 0.8;
 }
 
 .home__social{
@@ -352,27 +332,25 @@ img {
   align-self: center;
   display: flex;
   flex-direction: column;
-  row-gap: 1.2rem;
+  row-gap: .75rem;
 }
 
 .home__social-link{
   color:var(--title-color);
-  font-size: 1.3rem;
-  opacity: 0.7;
-  transition: all .3s;
+  font-size: 1.25rem;
+  transition: transform .4s, color .4s;
 }
 
 .home__social-link:hover{
   color: var(--first-color);
-  opacity: 1;
-  transform: translateX(6px);
+  transform: translateX(.25rem);
 }
 
 .home__cv{
   z-index: 2;
-  right: unset;
-  bottom: unset;
-  rotate: unset;
+  right: -2.5rem;
+  bottom: 2.5rem;
+  rotate: -90deg;
   color: var(--text-color-light);
   font:var(--font-medium) var(--small-font-size) var(--second-font);
   display:flex;
@@ -387,7 +365,7 @@ img {
 
 .home__cv:hover{
 color: var(--first-color);
-}
+} 
 
 
 /*=============== BUTTON ===============*/
@@ -503,10 +481,23 @@ color: var(--first-color);
   }
 
 
-  /* .home__container{
-    grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
+   .home__container{
+    width: initial;
+    padding-top: 3rem;
   }
+
+  .home__profile{
+    width: 600px;
+  }
+
+  .home__image .blob-animate{
+    width: 450px;
+    height: 450px;
+    bottom: 2rem;
+    filter: blur(50px);
+  }
+
+
 
   /* LEFT 
   .home__left{
