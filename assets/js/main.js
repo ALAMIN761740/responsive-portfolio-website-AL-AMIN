@@ -25,8 +25,28 @@ animate(chars2,{
     delay: stagger(80), 
     loop: true,
 })
-/*=============== SWIPER PROJECTS ===============*/
 
+
+
+
+/*=============== SWIPER PROJECTS ===============*/
+const swiperProjects = new Swiper('.projects__swiper', {
+    loop: true,
+    spaceBetween: 24,
+    slidesPerView: 'auto',
+    grabCursor: true,
+    speed:600,
+
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+
+    autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+    },
+});
 
 /*=============== WORK TABS ===============*/
 
