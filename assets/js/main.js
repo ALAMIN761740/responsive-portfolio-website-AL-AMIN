@@ -48,9 +48,31 @@ const swiperProjects = new Swiper('.projects__swiper', {
     },
 });
 
+
+
+
+
+
 /*=============== WORK TABS ===============*/
+const tabs = document.querySelectorAll('[data-target]'),
+      tabContents = document.querySelectorAll('[data-content]')
 
+tabs.forEach(tab =>{
+    tab.addEventListener('click', () =>{
+        const targetSection = tab.dataset.target,
+                targetContent = document.querySelector(targetSection)
+            
+        // Deactivate all tab contents
+        tabContents.forEach((content) => content.classList.remove('work-active'))
+        tabs.forEach((t)=> t.classList.remove('work-active'))
 
+        // Active the and corresponding content
+        tab.classList.add('work-active')
+        targetContent.classList.add('work-active')
+    })
+})
+        
+        
 /*=============== SERVICES ACCORDION ===============*/
 
 
