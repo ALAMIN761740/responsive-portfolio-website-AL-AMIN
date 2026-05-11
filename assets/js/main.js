@@ -79,6 +79,28 @@ const servicesButton = document.querySelectorAll('.services__button')
 servicesButton.forEach((button) => {
     // Add your height to services info
     const heightInfo = document.querySelector('.services__info')
+    heightInfo.style.height = heightInfo.scrollHeight + 'px'
+
+    button.addEventListener('click', () => {
+        const servicesCard = document.querySelectorAll('.services__card'),
+                currentCard = button.parentNode
+                currentInfo = currentCard.querySelector('.services__info')
+                isCardOpen = currentCard.classList.contains('services-open')
+
+        // Close all other services info
+        servicesCard.forEach((card) => {
+            card.classList.replace('services-open', 'services-close')
+
+            const info = card.querySelector('.services__info')
+            info.style.height = 0
+        })
+
+        // Open only if not already open
+        if (!isCardOpen) {
+            currentCard.classList.replace('services-close', 'services-open')
+            currentInfo.style.height = currentInfo.scrollHeight + 'px'
+        }
+    })
 
 })
 
