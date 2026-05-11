@@ -767,14 +767,26 @@ color: var(--first-color);
   cursor: pointer;
 }
 
-
+.services__button i{
+  transition: rotate .4s;
+}
 
 
 /* Hide services info */
+.services-close .services__info{
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
 
+.services__info{
+  transition: height .4s, opacity .4s;
+}
 
 /* Rotate icon */
-
+.services-open .services__button i{
+  rotate: -180deg;
+}
 
 /*=============== TESTIMONIALS ===============*/
 

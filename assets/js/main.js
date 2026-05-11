@@ -74,7 +74,13 @@ tabs.forEach(tab =>{
         
         
 /*=============== SERVICES ACCORDION ===============*/
+const servicesButton = document.querySelectorAll('.services__button')
 
+servicesButton.forEach((button) => {
+    // Add your height to services info
+    const heightInfo = document.querySelector('.services__info')
+
+})
 
 /*=============== TESTIMONIALS OF DUPLICATE CARDS ===============*/
 
